@@ -21,4 +21,5 @@
     <string name="retry_btn">Retry</string>
     <string name="no_result">No results found for this query</string>
     <string name="empty_text">Use the search bar to start searching for your favourite movies</string>
+    <string name="exam_feature_message">Movie details feature branch</string>
 </resources>
