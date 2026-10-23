@@ -14,25 +14,27 @@
         android:id="@+id/recyclerViewRowMovie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/size_50"
-        android:elevation="@dimen/size_25"
-        app:cardBackgroundColor="@color/grey"
-        app:cardCornerRadius="@dimen/size_75">
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="#1E1E2C"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_movie_item"
-                android:layout_width="@dimen/size_600"
+                android:layout_width="125dp"
                 android:layout_height="0dp"
                 android:downloadUrl="@{movie.posterPath}"
                 android:outlineProvider="background"
-                android:scaleType="fitCenter"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="60:89"
+                app:layout_constraintDimensionRatio="2:3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -41,9 +43,7 @@
                 android:id="@+id/cl_movie_item_detail_container"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:padding="@dimen/size_10"
+                android:padding="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_movie_item"
@@ -51,49 +51,61 @@
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/ib_movie_item_fav"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/bg_rectangle_darker_gray"
+                    android:backgroundTint="#33FFFFFF"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/ic_not_favorite"
-                    app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/ll_movie_detail_container"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/size_25"
-                    android:gravity="center"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="start|center_vertical"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ib_movie_item_fav"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_movie_item_title"
-                        style="@style/TextAppearance.AppCompat.Body2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/size_25"
-                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:ellipsize="end"
+                        android:gravity="start"
+                        android:maxLines="2"
                         android:text="@{movie.title}"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:text="The Dark Knight Rises" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_movie_item_release_date"
-                        style="@style/TextAppearance.AppCompat.Body2"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_rectangle_darker_gray"
+                        android:backgroundTint="#2D3250"
                         android:gravity="center"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
                         android:text="@{movie.year}"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp" />
+                        android:textColor="#6488FA"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        tools:text="2012" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 </layout>
